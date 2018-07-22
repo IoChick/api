@@ -17,8 +17,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard/templates/dashboard/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="120" column="64" selection-start-line="120" selection-start-column="64" selection-end-line="120" selection-end-column="64" />
+            <state relative-caret-position="68">
+              <caret line="10" column="67" lean-forward="true" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -56,6 +56,13 @@
     <findStrings>
       <find>Dashboard</find>
       <find>card</find>
+      <find>&lt;div class=&quot;col&quot;&gt;</find>
+      <find>mb-md-auto</find>
+      <find>&lt;div class=&quot;col-sm&quot;&gt;</find>
+      <find>&lt;div class=&quot;col-sm col-md-6 col-lg-3 mb-md-4&quot;&gt;</find>
+      <find>&lt;div class=&quot;col-sm-6 col-md-6 col-lg-3 mb-md-4&quot;&gt;</find>
+      <find>&lt;div class=&quot;col-sm-6 col-md-6 col-lg-3 mb-sm-4 mb-md-4&quot;&gt;</find>
+      <find>&lt;div class=&quot;col-sm-6 col-md-6 col-lg-3 mb-xs-4 mb-sm-4 mb-md-4&quot;&gt;</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -102,24 +109,6 @@
             <path>
               <item name="IoChick" type="b2602c69:ProjectViewProjectNode" />
               <item name="IoChick" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IoChick" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IoChick" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IoChick" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IoChick" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IoChick" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IoChick" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -209,7 +198,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.32948717" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32948717" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32948717" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info anchor="bottom" id="Docker" />
       <window_info anchor="right" id="Database" />
@@ -364,8 +353,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/templates/dashboard/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="120" column="64" selection-start-line="120" selection-start-column="64" selection-end-line="120" selection-end-column="64" />
+        <state relative-caret-position="68">
+          <caret line="10" column="67" lean-forward="true" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
         </state>
       </provider>
     </entry>
