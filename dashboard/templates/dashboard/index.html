@@ -1,0 +1,115 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+    <h5 class="mb-4">Informações dos Sensores</h5>
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><span data-feather="thermometer"></span> Temperatura</h5>
+                    <p class="card-text valor">
+                        37º
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><span data-feather="droplet"></span> Umidade</h5>
+                    <p class="card-text valor">
+                        70%
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><span data-feather="sun"></span> Luminosidade</h5>
+                    <p class="card-text valor">
+                        Alta
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><span data-feather="cloud-rain"></span> Chuva</h5>
+                    <p class="card-text valor">
+                        Baixa
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><span data-feather="git-commit"></span> Nível de Água</h5>
+                    <p class="card-text valor">
+                        Cheio
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-cutlery"></i> Nível de Ração</h5>
+                    <p class="card-text valor">
+                        Vazio
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h5 class="my-4">Dispositivos</h5>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-lightbulb-o"></i> Lâmpada</h5>
+                    <p class="card-text valor">
+                        Ligada
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-window-maximize"></i> Persiana</h5>
+                    <p class="card-text valor">
+                        Desligada
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-bitbucket"></i> Bomba de Água</h5>
+                    <p class="card-text valor">
+                        Cheio
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><span data-feather="inbox"></span> Nível de Ração</h5>
+                    <p class="card-text valor">
+                        Vazio
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
