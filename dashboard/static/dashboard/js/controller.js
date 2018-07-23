@@ -20,6 +20,8 @@ app.controller('DashboardController', function ($http, $interval) {
                     });
                 }
             });
+        }).catch(function (error, status){
+            self.loading = false;
         });
     }
 
@@ -27,7 +29,8 @@ app.controller('DashboardController', function ($http, $interval) {
         $http.get("http://localhost:8000/api/obter_dados_dispositivo/" + dispositivo.uuid + "/" + sensor.sensor_id + "/?format=json").then(function (response) {
             sensor.ultima_leitura = response.data[0];
             self.loading = false;
-            return sensor;
+        }).catch(function (error, status){
+            self.loading = false;
         });
     }
 
@@ -35,10 +38,6 @@ app.controller('DashboardController', function ($http, $interval) {
         $http.get("http://localhost:8000/api/ativar_atuador/" + dispositivo.uuid + "/" + sensor.sensor_id + "/?format=json").then(function (response) {
             self.loading = true;
             sensor = atualizar_dados_sensor(dispositivo, sensor);
-
-            if (self.dispositivos_conectados.indexOf(sensor) !== -1) {
-                self.dispositivos_conectados[index] = sensor;
-            }
         });
     };
 
@@ -46,10 +45,6 @@ app.controller('DashboardController', function ($http, $interval) {
         $http.get("http://localhost:8000/api/desativar_atuador/" + dispositivo.uuid + "/" + sensor.sensor_id + "/?format=json").then(function (response) {
             self.loading = true;
             sensor = atualizar_dados_sensor(dispositivo, sensor);
-
-            if (self.dispositivos_conectados.indexOf(sensor) !== -1) {
-                self.dispositivos_conectados[index] = sensor;
-            }
         });
     };
 
@@ -57,9 +52,6 @@ app.controller('DashboardController', function ($http, $interval) {
         self.loading = true;
         self.dispositivos_conectados = [];
         atualizar_dados_dispositivos();
-
-        // Repetindo as chamadas a cada 10 segundos.
-        $interval(init, 10 * 1000);
     }
 
     // Inicializando as chamadas a API do KNoT.

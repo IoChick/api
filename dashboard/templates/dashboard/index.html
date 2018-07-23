@@ -25,6 +25,11 @@
                         <div class="card-body">
                             <h5 class="card-title">
                                 {[{ sensor.name }]}
+
+                                <div class="btn-group btn-group-sm pull-right" role="group" ng-if="sensor.name != 'RainSensor' && sensor.name != 'Water level' && sensor.name != 'Food level' && sensor.value_type == 3">
+                                    <button type="button" class="btn btn-success" ng-click="dashboard.ativar_atuador(dispositivo, sensor)" ng-disabled="sensor.ultima_leitura.value == 'true'">On</button>
+                                    <button type="button" class="btn btn-danger" ng-click="dashboard.desativar_atuador(dispositivo, sensor)" ng-disabled="sensor.ultima_leitura.value == 'false'">Off</button>
+                                </div>
                             </h5>
 
                             <p class="card-text valor">
@@ -35,11 +40,6 @@
                                     {[{ sensor.ultima_leitura.value }]}
                                 </span>
                             </p>
-
-                            <div class="btn-group btn-group-sm" role="group" ng-if="sensor.name != 'RainSensor' && sensor.value_type == 3">
-                                <button type="button" class="btn btn-success" ng-click="dashboard.ativar_atuador(dispositivo, sensor)" ng-disabled="sensor.ultima_leitura.value == 'true'">On</button>
-                                <button type="button" class="btn btn-danger" ng-click="dashboard.desativar_atuador(dispositivo, sensor)" ng-disabled="sensor.ultima_leitura.value == 'false'">Off</button>
-                            </div>
                         </div>
                     </div>
                 </div>
