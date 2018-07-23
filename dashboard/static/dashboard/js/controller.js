@@ -18,7 +18,7 @@ app.config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
     $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
 }]);
-app.controller('DashboardController', function ($http, $window, $interval) {
+app.controller('DashboardController', function ($http, $interval, $timeout) {
     var self = this;
     this.dispositivos_conectados = [];
     this.loading = true;
@@ -52,16 +52,20 @@ app.controller('DashboardController', function ($http, $window, $interval) {
     this.ativar_atuador = function(dispositivo, sensor) {
         $http.get("/api/ativar_atuador/" + dispositivo.uuid + "/" + sensor.sensor_id + "/?format=json", {cache: false}).then(function (response) {
             self.loading = true;
-            self.dispositivos_conectados = [];
-            init();
+            sensor.ultima_leitura.value = null;
+            $timeout( function(){
+                atualizar_dados_sensor(dispositivo, sensor);
+            }, 3000);
         });
     };
 
     this.desativar_atuador = function(dispositivo, sensor) {
         $http.get("/api/desativar_atuador/" + dispositivo.uuid + "/" + sensor.sensor_id + "/?format=json", {cache: false}).then(function (response) {
             self.loading = true;
-            self.dispositivos_conectados = [];
-            init();
+            sensor.ultima_leitura.value = null;
+            $timeout( function(){
+                atualizar_dados_sensor(dispositivo, sensor);
+            }, 3000);
         });
     };
 
