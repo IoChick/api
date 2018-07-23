@@ -122,3 +122,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# KNoT Configuration
+
+KNOT_SETTINGS = {
+    # 'URL': 'knot-test.cesar.org.br',
+    'URL': 'knot04.local',
+    'PORT': 3000,
+    'UUID': '2944f1d1-8e9b-4fa2-b6c6-423e69d90000',
+    'TOKEN': '9c42f59d48bc10d39806646bc8793de9c9de8be5'
+}

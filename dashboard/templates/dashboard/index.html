@@ -1,71 +1,81 @@
 {% extends 'dashboard/base.html' %}
 
 {% block content %}
+    {% for thing in dispositivos_ativos %}
+        <h5 class="mb-4">
+            Informações dos Sensores da KNOTDevice: <strong>{{ thing.name }}</strong>
+        </h5>
 
-    <h5 class="mb-4">Informações dos Sensores</h5>
+        <div class="row">
+            {% for sensor in thing.schema %}
+                <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><!--<span data-feather="thermometer"></span>--> {{ sensor.name }}</h5>
+                            <p class="card-text valor">
+                                {{ sensor.unit }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><span data-feather="droplet"></span> Umidade</h5>
+                        <p class="card-text valor">
+                            70%
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><span data-feather="sun"></span> Luminosidade</h5>
+                        <p class="card-text valor">
+                            Alta
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><span data-feather="cloud-rain"></span> Chuva</h5>
+                        <p class="card-text valor">
+                            Baixa
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><span data-feather="git-commit"></span> Nível de Água</h5>
+                        <p class="card-text valor">
+                            Cheio
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fa fa-cutlery"></i> Nível de Ração</h5>
+                        <p class="card-text valor">
+                            Vazio
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    {% empty %}
+        <div class="alert alert-warning">
+            <i class="fa fa-warning"></i> Atenção! Nenhum dispositivo conectado ao KNotGateway.
+        </div>
+    {% endfor %}
 
-    <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><span data-feather="thermometer"></span> Temperatura</h5>
-                    <p class="card-text valor">
-                        37º
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><span data-feather="droplet"></span> Umidade</h5>
-                    <p class="card-text valor">
-                        70%
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><span data-feather="sun"></span> Luminosidade</h5>
-                    <p class="card-text valor">
-                        Alta
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><span data-feather="cloud-rain"></span> Chuva</h5>
-                    <p class="card-text valor">
-                        Baixa
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><span data-feather="git-commit"></span> Nível de Água</h5>
-                    <p class="card-text valor">
-                        Cheio
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="fa fa-cutlery"></i> Nível de Ração</h5>
-                    <p class="card-text valor">
-                        Vazio
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <h5 class="my-4">Dispositivos</h5>
     <div class="row">
