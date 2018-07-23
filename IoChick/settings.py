@@ -126,9 +126,9 @@ STATIC_URL = '/static/'
 # KNoT Configuration
 
 KNOT_SETTINGS = {
-    'URL': 'knot-test.cesar.org.br',
-    # 'URL': 'knot04.local',
+    # 'URL': 'knot-test.cesar.org.br',
+    'URL': 'knot05.local',
     'PORT': 3000,
-    'UUID': '2944f1d1-8e9b-4fa2-b6c6-423e69d90000',
-    'TOKEN': '9c42f59d48bc10d39806646bc8793de9c9de8be5'
+    'UUID': 'bda84e42-ab2a-4b91-a279-cee8c59d0000',
+    'TOKEN': '79ac47e76a59cc7aa924b481c56e1c9552ac014c'
 }

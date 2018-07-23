@@ -2,20 +2,44 @@
 
 {% block content %}
     <div class="container" ng-controller="DashboardController as dashboard">
-        <div class="row" ng-repeat="dispositivo in dashboard.dispositivos_conectados">
+        <div ng-show="dashboard.loading">
+            <p class="alert alert-info">
+                <i class="fa fa-spinner fa-spin"></i> Carregando os dados do KNoTCloud...
+            </p>
+        </div>
+
+        <div ng-show="!dashboard.loading && dashboard.dispositivos_conectados.lenght == 0">
+            <p class="alert alert-warning">
+                <i class="fa fa-warning-alt"></i> Atenção! Nenhum dispositivo KNoT encontrado.
+            </p>
+        </div>
+
+        <div ng-repeat="dispositivo in dashboard.dispositivos_conectados" ng-show="dashboard.dispositivos_conectados.lenght != 0">
             <h5 class="mb-4">
-                Informações dos Sensores do KNoTDevice:
                 <strong><i class="fa fa-connectdevelop"></i> {[{ dispositivo.name }]}</strong>
             </h5>
 
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4" ng-repeat="sensor in dashboard.schema">
+                <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-sm-4 mb-md-4" ng-repeat="sensor in dispositivo.schema">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><span data-feather="thermometer"></span> Temperatura</h5>
+                            <h5 class="card-title">
+                                {[{ sensor.name }]}
+                            </h5>
+
                             <p class="card-text valor">
-                                37º
+                                <span ng-if="sensor.value_type == 3 && sensor.ultima_leitura.value == 'true'">Ligado</span>
+                                <span ng-if="sensor.value_type == 3 && sensor.ultima_leitura.value == 'false'">Desligado</span>
+
+                                <span ng-if="sensor.value_type != 3">
+                                    {[{ sensor.ultima_leitura.value }]}
+                                </span>
                             </p>
+
+                            <div class="btn-group btn-group-sm" role="group" ng-if="sensor.name != 'RainSensor' && sensor.value_type == 3">
+                                <button type="button" class="btn btn-success" ng-click="dashboard.ativar_atuador(dispositivo, sensor)" ng-disabled="sensor.ultima_leitura.value == 'true'">On</button>
+                                <button type="button" class="btn btn-danger" ng-click="dashboard.desativar_atuador(dispositivo, sensor)" ng-disabled="sensor.ultima_leitura.value == 'false'">Off</button>
+                            </div>
                         </div>
                     </div>
                 </div>

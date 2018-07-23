@@ -56,14 +56,13 @@ def obter_dados_dispositivo(request, device_uuid, sensor_id=None):
         'token': settings.KNOT_SETTINGS.get('TOKEN')
     }
     conn = KnotConnection('http', credentials)
-
-    data = conn.getData(device_uuid, limit=1)
+    data = conn.getData(device_uuid)
 
     if not sensor_id:
         return Response(data)
     else:
         return Response(
-            filter(lambda x: x['sensor_id'] == sensor_id, data['schema'])
+            filter(lambda x: x['sensor_id'] == str(sensor_id), data)
         )
 
 
@@ -76,7 +75,7 @@ def ativar_atuador(request, device_uuid, sensor_id):
         'token': settings.KNOT_SETTINGS.get('TOKEN')
     }
     conn = KnotConnection('http', credentials)
-    return Response(conn.setData(device_uuid, sensor_id, True))
+    return Response(conn.setData(device_uuid, int(sensor_id), True))
 
 
 @api_view(['GET'])
@@ -88,4 +87,4 @@ def desativar_atuador(request, device_uuid, sensor_id):
         'token': settings.KNOT_SETTINGS.get('TOKEN')
     }
     conn = KnotConnection('http', credentials)
-    return Response(conn.setData(device_uuid, sensor_id, False))
+    return Response(conn.setData(device_uuid, int(sensor_id), False))

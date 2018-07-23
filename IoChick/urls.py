@@ -19,6 +19,5 @@ from dashboard import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^dashboards/', include('dashboard.urls')),
     url(r'^api/', include('api.urls'))
 ]
