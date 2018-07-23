@@ -33,17 +33,17 @@
                             </h5>
 
                             <p class="card-text valor">
-                                <span ng-if="sensor.value_type == 3 && sensor.ultima_leitura.value == 'true'">Ligado</span>
-                                <span ng-if="sensor.value_type == 3 && sensor.ultima_leitura.value == 'false'">Desligado</span>
+                                <span ng-if="sensor.name != 'Water level' && sensor.name != 'Food level' && sensor.value_type == 3 && sensor.ultima_leitura.value == 'true'">Ligado</span>
+                                <span ng-if="sensor.name != 'Water level' && sensor.name != 'Food level' && sensor.value_type == 3 && sensor.ultima_leitura.value == 'false'">Desligado</span>
                                 <span ng-if="sensor.value_type == 3 && sensor.ultima_leitura.value == null">
                                     <i class="fa fa-spinner spin"></i>
                                 </span>
 
-                                <span ng-if="sensor.name == 'Water level' && sensor.ultima_leitura.value == 'true'">Cheio</span>
-                                <span ng-if="sensor.name == 'Water level' && sensor.ultima_leitura.value == 'false'">Vazio</span>
+                                <span ng-if="sensor.name == 'Water level' && sensor.ultima_leitura.value == 'true'">Vazio</span>
+                                <span ng-if="sensor.name == 'Water level' && sensor.ultima_leitura.value == 'false'">Cheio</span>
 
-                                <span ng-if="sensor.name == 'Food level' && sensor.ultima_leitura.value == 'true'">Cheio</span>
-                                <span ng-if="sensor.name == 'Food level' && sensor.ultima_leitura.value == 'false'">Vazio</span>
+                                <span ng-if="sensor.name == 'Food level' && sensor.ultima_leitura.value == 'true'">Vazio</span>
+                                <span ng-if="sensor.name == 'Food level' && sensor.ultima_leitura.value == 'false'">Cheio</span>
 
                                 <span ng-if="sensor.value_type != 3">
                                     {[{ sensor.ultima_leitura.value }]}
